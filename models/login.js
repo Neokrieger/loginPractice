@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.Userinfo = this.hasOne(models.Comment, { onDelete: 'cascade' })
+      this.Userinfo = this.hasOne(models.Userinfo, { onDelete: 'cascade' })
     }
   };
   Login.init({
