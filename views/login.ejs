@@ -7,13 +7,14 @@
     <title>Login Practice</title>
 </head>
 <body>
-    <form>
+    <form action="/login/error" method="post">
         <input type="text" name="username" placeholder="username" />
         <input type="password" name="password" placeholder="password" />
         <button type="submit">Login</button>
         </form>
-        <form action="/register">
+        <form action="/register" method="get">
             <button type="submit">Register</button>
         </form>
+        <p> <%= error %> </p>
 </body>
 </html>
