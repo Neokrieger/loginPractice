@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\migrations",
+    "\\models",
+    "\\routers",
+    "\\seeders",
+    "\\test",
+    "\\views"
+  ],
+  "SelectedNode": "\\migrations\\20210809144842-create-login.js",
+  "PreviewInSolutionExplorer": false
+}

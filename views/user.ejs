@@ -1,1 +1,10 @@
-<h1>Hello</h1>
+<h1>Hello <%= currentUser.username%> </h1>
+<h2>Welcome to <%= profile%>'s profile</h2>
+<form action="/comments/<%=id%>" method="post">
+  <p>Leave a comment?</p>
+  <input type="text" placeholder="comment" name="comment"/>
+  <button type="submit">Comment</button>
+</form>
+<% comments.map(comment => { %>
+              <p> <%= currentUser.username%>'s comment: <%= comment.text %></p>
+                <% }) %>

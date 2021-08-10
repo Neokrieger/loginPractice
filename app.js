@@ -10,6 +10,7 @@ const expressLayouts = require('express-ejs-layouts');
 const loginRouter = require('./routers/login')
 const registerRouter = require('./routers/register')
 const userRouter = require('./routers/user')
+const commentsRouter = require('./routers/comments')
 
 app.use(expressLayouts);
 app.use(methodOverride('_method'));
@@ -38,6 +39,7 @@ app.use(async (req, res, next) => {
 app.use('/login', loginRouter)
 app.use('/user', userRouter)
 app.use('/register', registerRouter)
+app.use('/comments', commentsRouter)
 
 
 app.listen(port, () => {
