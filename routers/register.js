@@ -12,7 +12,10 @@ router.post('/new', async (req, res) => {
 		username : req.body.username,
 		password : bcrypt.hashSync(req.body.password)
 	});
-	res.redirect('/login');
+
+req.session.userId = user.id
+
+	res.redirect(`/user/${req.session.userId}`);
 });
 
 module.exports = router;

@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
+const { Login } = require(`../models`);
+const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
 	res.render('login', {
-		error : ''
+		error : res.locals.errors[0]
 	});
 });
 
-router.post('/login/error', async (req, res) => {
+router.post('/error', async (req, res) => {
 	const user = await Login.findOne({
 		where : {
 			username : req.body.username
@@ -15,10 +17,11 @@ router.post('/login/error', async (req, res) => {
 	});
 
 	if (user && bcrypt.compareSync(req.body.password, user.password)) {
-		res.redirect(`/user/${login.id}`);
+		req.session.userId = user.id
+		res.redirect(`/user/${req.session.userId}`);
 	} else {
 		res.render(`login`, {
-			error : 'Username/Password is incorrect'
+			error : res.locals.errors[1]
 		});
 	}
 });
